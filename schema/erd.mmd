@@ -1,0 +1,41 @@
+---
+config:
+  fontFamily: Arial
+---
+erDiagram
+    direction LR
+
+    users {
+        INTEGER user_id PK
+        TEXT display_name
+    }
+
+    movies {
+        INTEGER movie_id PK
+        TEXT title
+        BOOLEAN is_active
+        INTEGER runtime_minutes
+    }
+
+    ratings {
+        INTEGER rating_id PK
+        INTEGER user_id FK
+        INTEGER movie_id FK
+        TIMESTAMPTZ rated_at
+        INTEGER score
+    }
+
+    genres {
+        INTEGER genre_id PK
+        TEXT genre_name
+    }
+
+    movie_genres {
+        INTEGER movie_id PK, FK
+        INTEGER genre_id PK, FK
+    }
+
+    users ||..o{ ratings : submits
+    movies ||..o{ ratings : receives
+    movies ||--o{ movie_genres : has
+    genres ||--o{ movie_genres : has
