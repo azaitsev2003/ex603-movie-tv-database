@@ -15,14 +15,15 @@ erDiagram
         TEXT title
         BOOLEAN is_active
         INTEGER runtime_minutes
+        INTEGER previous_movie_id FK
     }
 
     ratings {
         INTEGER rating_id PK
         INTEGER user_id FK
         INTEGER movie_id FK
-        TIMESTAMPTZ rated_at
-        INTEGER score
+        TIMESTAMP rated_at
+        NUMERIC score "precision 3, scale 2"
     }
 
     genres {
@@ -39,3 +40,4 @@ erDiagram
     movies ||..o{ ratings : receives
     movies ||--o{ movie_genres : has
     genres ||--o{ movie_genres : has
+    movies |o..o{ movies : precedes
