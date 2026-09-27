@@ -21,7 +21,7 @@ Each row represents one user account on the movie ratings platform.
 
 Each row represents one movie that the platform stores information about.
 
-**Relation schema:** movies(movie_id, title, is_active, runtime_minutes)
+**Relation schema:** movies(movie_id, title, is_active, runtime_minutes, previous_movie_id)
 
 |Attribute|Domain|
 |---|---|
@@ -29,6 +29,7 @@ Each row represents one movie that the platform stores information about.
 |title|TEXT, nonblank|
 |is_active|BOOLEAN|
 |runtime_minutes|INTEGER, greater than 0|
+|previous_movie_id|INTEGER, greater than 0, or NULL|
 
 **Primary key:** movie_id
 
@@ -45,8 +46,8 @@ Each row represents one user's current rating of one movie.
 |rating_id|INTEGER, greater than 0|
 |user_id|INTEGER, greater than 0|
 |movie_id|INTEGER, greater than 0|
-|rated_at|TIMESTAMPTZ|
-|score|INTEGER, 1-5|
+|rated_at|TIMESTAMP|
+|score|NUMERIC(3,2), limited to 1, 2, 3, 4, or 5|
 
 **Primary key:** rating_id
 
