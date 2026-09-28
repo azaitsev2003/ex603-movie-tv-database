@@ -49,3 +49,7 @@ I added previous_movie_id to movies to connect a movie to its previous movie, su
 I changed score from INTEGER to NUMERIC(3,2) to follow the Unit 2 type guidance. The CHECK still limits each score to 1, 2, 3, 4, or 5.
 
 I changed rated_at from TIMESTAMPTZ to TIMESTAMP to follow the Unit 2 type guidance. I also added DEFAULT CURRENT_TIMESTAMP so a new rating receives the current time if no rated_at value is provided.
+
+## Derived Values
+
+Movie averages will be calculated from ratings when needed instead of stored in a separate column. This avoids having to update a stored average each time a rating is added, changed, or deleted.
