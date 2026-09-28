@@ -13,3 +13,17 @@ The platform needs to answer questions such as which movies have the highest ave
 ## Entity Relationship Diagram
 
 ![Movie/TV ratings database ERD](schema/erd.png)
+
+## Schema
+
+|Table|Purpose|
+|---|---|
+|users|Stores user accounts and their display names.|
+|movies|Stores movie titles, runtimes, and whether each movie is active.|
+|ratings|Stores one current rating per user and movie, including the score and rated_at value.|
+|genres|Stores the genres used to classify movies.|
+|movie_genres|Links movies to genres, allowing a movie to have multiple genres and a genre to be used for multiple movies.|
+
+users, movies, ratings, and genres use automatically generated integer primary keys. movie_genres uses (movie_id, genre_id) as its composite primary key, which prevents duplicate movie and genre links.
+
+A movie cannot be deleted while it has ratings. It can be marked inactive instead using is_active. The optional previous_movie_id foreign key connects a movie to another movie in the same table, such as an earlier movie in a series.
