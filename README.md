@@ -27,3 +27,18 @@ The platform needs to answer questions such as which movies have the highest ave
 users, movies, ratings, and genres use automatically generated integer primary keys. movie_genres uses (movie_id, genre_id) as its composite primary key, which prevents duplicate movie and genre links.
 
 A movie cannot be deleted while it has ratings. It can be marked inactive instead using is_active. The optional previous_movie_id foreign key connects a movie to another movie in the same table, such as an earlier movie in a series.
+
+## Unit 4 Queries
+
+These queries use the provided data in `ex603_data`.
+A spam failure is a withdrawn rating with the reason `Spam detected`.
+
+|Query|Question|SQL file|
+|---|---|---|
+|4.1a|What are the total, average, minimum, and maximum scores, and how many ratings and reviewers are there?|[q4_1.sql](queries/unit4/q4_1.sql)|
+|4.1b|How many ratings does each movie have, and what is its average score?|[q4_1.sql](queries/unit4/q4_1.sql)|
+|4.1c|Which movies have at least 10 ratings?|[q4_1.sql](queries/unit4/q4_1.sql)|
+|4.1d|How do rating counts and average scores vary by country and status?|[q4_1.sql](queries/unit4/q4_1.sql)|
+|4.2A|How many ratings and spam withdrawals does each movie have?|[q4_2.sql](queries/unit4/q4_2.sql)|
+|4.2B|What are the rating totals and spam rates for each country and the whole platform?|[q4_2.sql](queries/unit4/q4_2.sql)|
+|4.2C|What is the combined spam withdrawal rate for movies with at least 10 ratings?|[q4_2.sql](queries/unit4/q4_2.sql)|
