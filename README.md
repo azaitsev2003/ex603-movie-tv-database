@@ -142,7 +142,7 @@ whether a gap came from a real drop in activity or missing data.
 
 ## Video presentation
 
-Video link will be added after recording.
+Video Link: https://www.youtube.com/watch?v=MGxKbbD-g8I
 
 ## How to run
 
